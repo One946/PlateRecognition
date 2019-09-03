@@ -12,7 +12,7 @@ public class Query{
         this.risultato = par;
     }
 
-    public String cercaTarga(String param){  
+    public String cercaTarga(String param){  //op =1
         try{
             System.out.println("SELECT * from Targhe where descrizione = '"+param+"'"); 
             Class.forName("com.mysql.cj.jdbc.Driver");  
@@ -30,7 +30,7 @@ public class Query{
         return risultato;
     }
 
-    public void insTarga(String param){  
+    public void insTarga(String param){  //op = 2
         Statement stmt = null;
         String query = "INSERT INTO Targhe (descrizione) VALUES ('"+param+"')";
         try{
@@ -45,7 +45,7 @@ public class Query{
         catch(Exception e){ System.out.println("Errore nell'inserimento della targa errore:"+e);}
     }
 
-    public void upTarga(String old, String newOne){  
+    public void upTarga(String old, String newOne){  //op = 3
         Statement stmt = null;
         String query = "UPDATE Targhe set descrizione = '"+newOne+"' where descrizione = '"+old+"'";
         try{
@@ -60,7 +60,7 @@ public class Query{
         catch(Exception e){ System.out.println(e);}
     }
 
-    public void delTarga(String param){
+    public void delTarga(String param){ //op = 4
         Statement stmt = null;
         String query = "DELETE from Targhe WHERE descrizione = '"+param+"'";  
         try{
@@ -75,4 +75,33 @@ public class Query{
         catch(Exception e){ System.out.println("Erorre nella rimozione della targa:"+e);}
     }
 
+    public void op(int op, String param){
+        switch(op) {
+            case 1:
+              this.cercaTarga(param);
+              break;
+            case 2:
+              this.insTarga(param);
+              break;
+            case 4:
+              this.delTarga(param);
+              break;
+          }
+    }
+    public void op(int op, String old, String newOne, String param){
+        switch(op) {
+            case 1:
+              this.cercaTarga(param);
+              break;
+            case 2:
+              this.insTarga(param);
+              break;
+            case 3:
+              this.upTarga(old, newOne);
+              break;
+            case 4:
+              this.delTarga(param);
+              break;
+          }
+    }
 }  

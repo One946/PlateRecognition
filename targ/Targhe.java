@@ -1,9 +1,5 @@
 package targ;
 import com.openalpr.jni.*;
-import com.openalpr.jni.json.*;
-
-import javafx.beans.property.SetProperty;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +17,7 @@ public class Targhe{
     }
 
     public void setPosizione(int val){
-        this.posizione=val-1;
+        this.posizione=val;
     }
 
     public int getPosizione(){
@@ -35,13 +31,14 @@ public class Targhe{
     public void getNumb(){
         int x= -1;
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("inserisci il numero corrispondente alla targa corretta 1 per la prima 9 per l'ultima");
+        System.out.println("inserisci il numero corrispondente alla targa corretta 0 per la prima 9 per l'ultima");
         System.out.println("se nessuna delle targhe è corretta inserisci 11 per inserirla manualmente");
         x = keyboard.nextInt();
         if(x==-1){
             System.out.println("La scelta selezionata non è valida");
-        } else if(x>1 && x<10){
+        } else if(x>=0 && x<10){
             this.setPosizione(x);
+            this.setTargaCustom(targheList.get(this.posizione));
         }
         else if(x==11){
             System.out.println("Inserisci di seguito la tua targa manualmente");
