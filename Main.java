@@ -12,20 +12,17 @@ class Main{
             //Inzializo l'oggetto targhe e la lista che conterrà il risultato dell'algoritmo per l'individuazione della targa
             Targhe targheObj = new Targhe();
             ArrayList<String> listaTarghe = new ArrayList<String>();
-
-            String p = "/home/one/Desktop/test2/imgs/lp.jpg";//"/home/one/Desktop/Test/plate.jpeg"; http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
+            String targaSelezionata;
+            String p = "/home/one/Desktop/test/imgs/lp.jpg";//"/home/one/Desktop/Test/plate.jpeg"; http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
+            
             targheObj.getTarghe(p);
             listaTarghe=targheObj.getTargheList();
-            targheObj.getNumb();
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
             System.out.println(listaTarghe);
-
- /*
-        Query f = new Query();
-        f.delTarga("1234");
-        f.upTarga("FFFFFFFFFFFFFFFFf", "pippo");
-        f.insTarga("1234");
-        f.cercaTarga("1234");
-*/
+            targheObj.getNumb();
+            targaSelezionata =listaTarghe.get(targheObj.getPosizione());
+            Query f = new Query();
+            //f.insTarga(targaSelezionata);
+            f.cercaTarga(targaSelezionata);
+            System.out.println(f.getRisultato());
     }
 }    
