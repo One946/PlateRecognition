@@ -31,12 +31,10 @@ public class Targhe{
     public void getNumb(){
         int x= -1;
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("inserisci il numero corrispondente alla targa corretta 0 per la prima 9 per l'ultima");
+        System.out.println("Inserisci il numero corrispondente alla targa corretta 0 per la prima 9 per l'ultima");
         System.out.println("se nessuna delle targhe è corretta inserisci 11 per inserirla manualmente");
         x = keyboard.nextInt();
-        if(x==-1){
-            System.out.println("La scelta selezionata non è valida");
-        } else if(x>=0 && x<10){
+        if(x>=0 && x<10){
             this.setPosizione(x);
             this.setTargaCustom(targheList.get(this.posizione));
         }
@@ -46,7 +44,7 @@ public class Targhe{
             String y = kb.nextLine();
             System.out.println(y);
             this.setTargaCustom(y);
-        }
+        } else   System.out.println("La scelta selezionata non è valida");
     }
 
     public void getTarghe(String path) throws Exception{
