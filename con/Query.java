@@ -57,7 +57,7 @@ public class Query{
             "jdbc:mysql://remotemysql.com:3306/CGdY7lHCsM","CGdY7lHCsM","73wAAF3djl");
             stmt=con.createStatement();
             stmt.executeUpdate(query);
-            System.out.println("Targa:''"+old+"'' aggiornata correttamente a"+newOne+" !"); 
+            System.out.println("Targa:''"+old+"'' aggiornata correttamente a: "+newOne+" !"); 
         }
         catch(Exception e){ System.out.println(e);}
     }

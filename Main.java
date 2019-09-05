@@ -9,7 +9,7 @@ class Main{
             Targhe targheObj = new Targhe();
             ArrayList<String> listaTarghe = new ArrayList<String>();
             String targaSelezionata;
-            String p = "/home/one/Desktop/test/imgs/lp.jpg";// http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
+            String p = "/home/one/Desktop/test/imgs/su.jpg";// http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
             int operazione;
             String old=null; //vecchia targa in caso si voglia aggiornarne il valore
             //Selezione targa
@@ -28,15 +28,15 @@ class Main{
             System.out.println("Digita 4 per eliminare la targa");
             operazione = keyboard.nextInt();
             Query q = new Query();
+            q.op(operazione,targaSelezionata);
             if(operazione == 1 ||operazione == 2 ||operazione == 4 ){
-            //q.op(operazione,targaSelezionata);
-            //System.out.println(q.getRisultato());
+                System.out.println("Operazione effettuata sulla targa: "+q.getRisultato());
             }else if(operazione == 3){
                 Scanner kb = new Scanner(System.in);
                 System.out.println("hai selezionato l'opzione di aggiorna");
                 System.out.println("inserisci la targa inserita precdentemente");
                 old= kb.nextLine();
-                q.upTarga(old, targheObj.getTargaCustom());
+                q.op(operazione, old, targaSelezionata);
             }
     }
 }    
