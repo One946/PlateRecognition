@@ -17,18 +17,22 @@ public class Query{
 
     public void initQ(String path) throws Exception{
             ArrayList<String> listaTarghe = new ArrayList<String>();
-            String targaSelezionata;
-            String p = path;                                                                                                         // http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
+            String targaSelezionata;                                                                                                      // http://193.45.228.92/mjpg/video.mjpg Video o immagine contenenti la targa
             int operazione;
-            String old=null;                                                                                                                                                                    //vecchia targa in caso si voglia aggiornarne il valore
+            String old=null;
+            String paese;                                                                                                                                                                    //vecchia targa in caso si voglia aggiornarne il valore
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Inserisci us, se desideri lavorare su targhe americane");
+            System.out.println("Inserisci eu, se desideri lavorare su targhe europee");
+            paese = keyboard.nextLine();
             //Selezione targa
-            this.targheObj.getTarghe(p);
+            this.targheObj.getTarghe(path, paese);
             listaTarghe=targheObj.getTargheList();
             System.out.println(listaTarghe);
             this.targheObj.getNumb();
             targaSelezionata = this.targheObj.getTargaCustom();
             //Selezione operazione
-            Scanner keyboard = new Scanner(System.in);
+            //scanner
             System.out.println("Seleziona l'operazione da effettuare");
             System.out.println("Digita 1 per cercare la targa");
             System.out.println("Digita 2 per inserire la targa");

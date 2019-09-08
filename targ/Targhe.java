@@ -47,8 +47,8 @@ public class Targhe{
         } else   System.out.println("La scelta selezionata non è valida");
     }
 
-    public void getTarghe(String path) throws Exception{
-        Alpr alpr = new Alpr("eu", "/etc/openalpr/openalpr.conf", "/home/one/Desktop/openalpr-2.3.0/runtime_data");
+    public void getTarghe(String path, String country) throws Exception{
+        Alpr alpr = new Alpr(country, "/etc/openalpr/openalpr.conf", "/home/one/Desktop/openalpr-2.3.0/runtime_data");
         alpr.setTopN(10); // mi faccio restituire i primi 10 risultati
         try { 
             AlprResults results = alpr.recognize(path);
